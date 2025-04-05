@@ -51,10 +51,12 @@ export default function HomePage() {
         {/* Content */}
         <div className="flex-1 p-6 relative">
           <Editor value={inputText} onChange={setInputText} />
-          <div className='flex justify-between'>
-            {!result?.isValid && result?.message && (
-              <SuggestionBubble message={result.message} />
-            )}
+          <div className='flex flex-col md:flex-row justify-between'>
+            <div className='mb-5 md:mb-0'>
+              {!result?.isValid && result?.message && (
+                <SuggestionBubble message={result.message} />
+              )}
+            </div>
             <Toolbar
               onCheck={handleCheckGrammar}
               onClear={() => {
